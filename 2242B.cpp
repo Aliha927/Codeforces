@@ -13,23 +13,56 @@ int main(){
             cin>>element;
             arr.push_back(element);
         }
-        sort(arr.begin(), arr.end());
-         int arr_count[3] = {0};
-        for(int i = 0; i < n ; i++){
-                arr_count[arr[i] - 1]++;
-        }
-        
-        if ((arr_count[0] > (arr_count[2] + arr_count[1]) && n > 3) || (arr_count[0] > 1 && arr_count[1] > 0 && arr_count[2] > 0)){
-            cout<<"YES"<<endl;
-        }
-        else if (arr_count[1] == 1 && arr_count[2] ==1 && arr_count[0] == 1){
-            cout<<"YES"<<endl;
-        }
-      
-        else{
-            cout<<"NO"<<endl;
-        }
+        int index = arr.size() - 2;
+        bool flag = false;
+ 
+            //for second condition to be fullfilled 
+            // count left > count right and count left is count 1 and count 2 > count 3 
 
+            int count_left = 0;
+            int count_right = 0;
+           while (true){
+            if (arr[index] == 3){
+                count_right++;
+            }
+            else{
+                count_left++;
+           }
+           index--;
+          
+           if (count_left <= count_right){
+                break;
+            }
+             if (index < 0){
+            flag = true;
+            cout<<"NO"<<endl;
+                break;
+           }
+           }
+        
+            
+        if (flag == false){
+                int count_ones =0;
+                int count_others = 0;
+                while (index >= 0){
+                    if (arr[index] == 1){
+                        count_ones++;
+                    }
+                    else{
+                        count_others++;
+                    }
+                    index--;
+                }
+            
+                if (count_ones >= count_others){
+                    cout<<"YES"<<endl;
+                    
+                }
+                else{
+                    cout<<"NO"<<endl;
+                    
+                }
+            }
         test_cases--;
     }
 }
