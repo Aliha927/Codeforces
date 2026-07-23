@@ -5,7 +5,7 @@ int main(){
     int test_cases = 0;
     cin>>test_cases;
     while (test_cases > 0){
-        
+        cin>>n;
 
         test_cases--;
     }
