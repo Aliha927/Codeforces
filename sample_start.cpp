@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    int test_cases = 0;
+    int test_cases;
     cin>>test_cases;
     while (test_cases--){
         
